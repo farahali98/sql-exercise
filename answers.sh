@@ -1,3 +1,5 @@
+#basic
+
 select * from students
 
 
@@ -31,6 +33,7 @@ WHERE
     name = 'Alex';
 
 
+#creating a table
 CREATE TABLE Graduates(
  ID INTEGER PRIMARY KEY AUTOINCREMENT,
    Name TEXT NOT NULL UNIQUE,
@@ -53,7 +56,7 @@ SET Graduation='08/09/2018'
 WHERE name='Layal';
 
 
-
+# joins
 SELECT  employees.name,companies.name, companies.Date
 FROM companies
 INNER JOIN employees
@@ -61,6 +64,32 @@ ON companies.name=employees.Company;
 
 
 
-select employees.Name from employees join companies 
+SELECT employees.Name from employees join companies 
 companies on companies.Name= employees.Company where 
 companies.Date < 2000
+
+
+select companies.Name from companies join employees
+on companies.Name = employees.Company where employees.Role = 'Graphic Designer'
+
+
+#Count & Filter
+SELECT * FROM students
+ORDER by Points DESC
+LIMIT 1;
+
+
+SELECT AVG(Points) from students;
+
+
+SELECT COUNT(name)
+FROM students
+WHERE Points=500;
+
+
+SELECT name FROM students
+WHERE name LIKE '%s%';
+
+
+SELECT * FROM students
+ORDER by Points DESC;
